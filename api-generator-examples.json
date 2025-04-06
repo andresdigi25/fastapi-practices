@@ -1,0 +1,143 @@
+{
+    "models": {
+        "Producto": {
+            "nombre": "str",
+            "precio": "float",
+            "stock": "int"
+        },
+        "Cliente": {
+            "nombre": "str",
+            "email": "str",
+            "edad": "int"
+        }
+    },
+    "routes": [
+        {
+            "path": "/productos",
+            "method": "POST",
+            "body_model": "Producto",
+            "response_model": "Producto"
+        },
+        {
+            "path": "/productos",
+            "method": "GET",
+            "response_model": "Producto"
+        },
+        {
+            "path": "/clientes",
+            "method": "POST",
+            "body_model": "Cliente",
+            "response_model": "Cliente"
+        },
+        {
+            "path": "/clientes",
+            "method": "GET",
+            "response_model": "Cliente"
+        }
+    ]
+}
+
+
+
+{
+    "models": {
+        "Cliente": {
+            "nombre": "str",
+            "email": "str",
+            "edad": "int"
+        }
+    },
+    "routes": [
+        {
+            "path": "/clientes",
+            "method": "POST",
+            "body_model": "Cliente",
+            "response_model": "Cliente"
+        },
+        {
+            "path": "/clientes",
+            "method": "GET",
+            "response_model": "Cliente"
+        }
+    ]
+}
+
+
+{
+    "models": {
+        "Service": {
+            "nombre": "str",
+            "email": "str",
+            "edad": "int"
+        }
+    },
+    "routes": [
+        {
+            "path": "/services",
+            "method": "POST",
+            "body_model": "Service",
+            "response_model": "Service"
+        },
+        {
+            "path": "/services",
+            "method": "GET",
+            "response_model": "Service"
+        }
+    ]
+}
+
+
+
+
+curl -X POST "http://127.0.0.1:8000/register" \
+  -H "Content-Type: application/json" \
+  -d '{ "username": "newuser", "password": "mypassword" }'
+
+curl -X POST "http://127.0.0.1:8000/token" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "username=newuser&password=mypassword"
+
+curl -X POST "http://127.0.0.1:8000/generate_api" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJuZXd1c2VyIiwiZXhwIjoxNzQyMzIyODE0fQ.68Q9vjJcg2snm9AqPY-oKwM5-NzNOMbva5kuypgitko" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "models": {
+        "Producto": { "nombre": "str", "precio": "float", "stock": "int" }
+    },
+    "routes": [
+        { "path": "/productos", "method": "POST", "response_model": "Producto" },
+        { "path": "/productos", "method": "GET", "response_model": "Producto" }
+    ]
+}'
+
+
+
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB4hLG-5Pq3PRruTaFROSVuPlbM2bIt5KQ" \
+-H 'Content-Type: application/json' \
+-X POST \
+-d '{
+  "contents": [{
+    "parts":[{"text": "Explain how AI works"}]
+    }]
+   }'
+
+
+   ######### API WITH ROLES AND AUTHENTICATION #########
+   curl -X 'POST' \
+  'http://localhost:8000/create_role?name=admin' \
+  -H 'accept: application/json' \
+  -d ''
+
+  curl -X 'POST' \
+  'http://localhost:8000/register?username=andres&password=1234&role_name=admin' \
+  -H 'accept: application/json' \
+  -d ''
+
+
+  curl -X 'POST' \
+  'http://localhost:8000/token' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -d 'grant_type=password&username=andres&password=1234&scope=&client_id=string&client_secret=string'
+
+  curl -X POST "http://127.0.0.1:8000/generate_api" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmRyZXMiLCJleHAiOjE3NDIzMzAzODN9.QJQo5gEhCFS-7BRIioarc4wVlpheJdXSg3wP5UmUhb0" -H "Content-Type: application/json" -d '{ "models": { "Product": { "name": "str", "price": "float", "stock": "int" } }, "routes": [ { "path": "/products", "method": "GET", "response_model": "Product" } ] }'
