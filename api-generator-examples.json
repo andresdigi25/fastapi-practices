@@ -91,11 +91,11 @@
 
 curl -X POST "http://127.0.0.1:8000/register" \
   -H "Content-Type: application/json" \
-  -d '{ "username": "newuser", "password": "mypassword" }'
+  -d '{ "username": "", "password": "" }'
 
 curl -X POST "http://127.0.0.1:8000/token" \
   -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "username=newuser&password=mypassword"
+  -d "username=&password="
 
 curl -X POST "http://127.0.0.1:8000/generate_api" \
   -H "Authorization: Bearer add here" \
