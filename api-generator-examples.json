@@ -112,7 +112,7 @@ curl -X POST "http://127.0.0.1:8000/generate_api" \
 
 
 
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB4hLG-5Pq3PRruTaFROSVuPlbM2bIt5KQ" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=Apikey" \
 -H 'Content-Type: application/json' \
 -X POST \
 -d '{
