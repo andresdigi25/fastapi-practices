@@ -98,7 +98,7 @@ curl -X POST "http://127.0.0.1:8000/token" \
   -d "username=newuser&password=mypassword"
 
 curl -X POST "http://127.0.0.1:8000/generate_api" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJuZXd1c2VyIiwiZXhwIjoxNzQyMzIyODE0fQ.68Q9vjJcg2snm9AqPY-oKwM5-NzNOMbva5kuypgitko" \
+  -H "Authorization: Bearer add here" \
   -H "Content-Type: application/json" \
   -d '{
     "models": {
@@ -140,4 +140,4 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:g
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'grant_type=password&username=andres&password=1234&scope=&client_id=string&client_secret=string'
 
-  curl -X POST "http://127.0.0.1:8000/generate_api" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhbmRyZXMiLCJleHAiOjE3NDIzMzAzODN9.QJQo5gEhCFS-7BRIioarc4wVlpheJdXSg3wP5UmUhb0" -H "Content-Type: application/json" -d '{ "models": { "Product": { "name": "str", "price": "float", "stock": "int" } }, "routes": [ { "path": "/products", "method": "GET", "response_model": "Product" } ] }'
+  curl -X POST "http://127.0.0.1:8000/generate_api" -H "Authorization: Bearer add here" -H "Content-Type: application/json" -d '{ "models": { "Product": { "name": "str", "price": "float", "stock": "int" } }, "routes": [ { "path": "/products", "method": "GET", "response_model": "Product" } ] }'
