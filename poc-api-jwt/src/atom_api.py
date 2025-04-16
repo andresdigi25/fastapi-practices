@@ -32,7 +32,7 @@ async def startup_event():
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome to Address Standardization API"}
+    return {"message": "Welcome to the Proof of concept poc API"}
 
 @app.get("/health")
 async def health_check():
